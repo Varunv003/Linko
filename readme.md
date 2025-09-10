@@ -107,7 +107,6 @@ docker-compose down
 
 - **API Docs:** See the Postman collection above for full endpoint documentation.
 - **Issues:** [Open an issue](https://github.com/Varunv003/linko/issues) for bugs or feature requests.
-- **Contributions:** PRs welcome! See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
 
