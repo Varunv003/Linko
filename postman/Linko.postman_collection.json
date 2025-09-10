@@ -1,0 +1,325 @@
+{
+	"info": {
+		"_postman_id": "98c252be-4ac2-46e0-baad-43b4d677de8e",
+		"name": "Linko",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32840967"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"\",\r\n    \"email\":  \"\",\r\n    \"role\":  [\"ROLE_USER\"],\r\n    \"password\" : \"\"\r\n\r\n    // after register, you have to login \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/auth/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"\",\r\n    \"password\" : \"\"\r\n\r\n    // a token will be generated, copy that and paste that in the header section of all the request for authentication\r\n    //key - Authorization, Value - Bearer <token you got after login>\r\n\r\n    //redirect, redis-connection-test doesnot require the token\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "shorten",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWYXJ1blZpaiIsInJvbGVzIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzU3NTIxMzUzLCJleHAiOjE3NTc1MjQ5NTN9.HVhlWrSkVQWQxQ90RRZGghPuf7-IrXEpmlSw1hsfEkuIBLRxaL94kk2UTjOvtDuNan4uP_KmSpZ82AyTxXjYmA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"original_url\": \"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/urls/shorten",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"urls",
+						"shorten"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All urls",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWYXJ1blYwMDMiLCJyb2xlcyI6IlJPTEVfVVNFUiIsImlhdCI6MTc0ODIwNjgwMiwiZXhwIjoxNzQ4Mzc5NjAyfQ.Jn7j9sZewvvj4khGJLb_p-pd2ocpUzNEtRiOAgaZI7RVSebV3Cj-0ITDkKlArycAMdVvKyRHG_MsxlmmfNLpkw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/urls/myurls",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"urls",
+						"myurls"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Url specific analytics",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWYXJ1blYwMDMiLCJyb2xlcyI6IlJPTEVfVVNFUiIsImlhdCI6MTc0ODIwNjgwMiwiZXhwIjoxNzQ4Mzc5NjAyfQ.Jn7j9sZewvvj4khGJLb_p-pd2ocpUzNEtRiOAgaZI7RVSebV3Cj-0ITDkKlArycAMdVvKyRHG_MsxlmmfNLpkw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/urls/analytics/CWxDxU6J?startDate=2025-05-26T00:00:00&endDate=2025-05-26T03:00:00",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"urls",
+						"analytics",
+						"CWxDxU6J"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2025-05-26T00:00:00"
+						},
+						{
+							"key": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWYXJ1blYwMDMiLCJyb2xlcyI6IlJPTEVfVVNFUiIsImlhdCI6MTc0ODIwNjgwMiwiZXhwIjoxNzQ4Mzc5NjAyfQ.Jn7j9sZewvvj4khGJLb_p-pd2ocpUzNEtRiOAgaZI7RVSebV3Cj-0ITDkKlArycAMdVvKyRHG_MsxlmmfNLpkw",
+							"disabled": true
+						},
+						{
+							"key": "endDate",
+							"value": "2025-05-26T03:00:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All clicks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWYXJ1blYwMDMiLCJyb2xlcyI6IlJPTEVfVVNFUiIsImlhdCI6MTc0ODIwNjgwMiwiZXhwIjoxNzQ4Mzc5NjAyfQ.Jn7j9sZewvvj4khGJLb_p-pd2ocpUzNEtRiOAgaZI7RVSebV3Cj-0ITDkKlArycAMdVvKyRHG_MsxlmmfNLpkw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/api/urls/analytics/totalClicks?startDate=2025-05-26T00:00:00&endDate=2025-05-26T03:00:00",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"urls",
+						"analytics",
+						"totalClicks"
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "2025-05-26T00:00:00"
+						},
+						{
+							"key": "endDate",
+							"value": "2025-05-26T03:00:00"
+						},
+						{
+							"key": "Authorization",
+							"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWYXJ1blYwMDMiLCJyb2xlcyI6IlJPTEVfVVNFUiIsImlhdCI6MTc0ODIwNjgwMiwiZXhwIjoxNzQ4Mzc5NjAyfQ.Jn7j9sZewvvj4khGJLb_p-pd2ocpUzNEtRiOAgaZI7RVSebV3Cj-0ITDkKlArycAMdVvKyRHG_MsxlmmfNLpkw",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update url",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWYXJ1bnYiLCJyb2xlcyI6IlJPTEVfVVNFUiIsImlhdCI6MTc1MDE3NjEzOCwiZXhwIjoxNzUwMzQ4OTM4fQ.ZplXfxw9WF86VH_U52Z7QzUOsRT2Y1zOUeZ1-562I9YGlIC5FBErynMhHiekD5NJeTlMyCFErSLp8xgE_-5XUg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"original_url\":\"https://github.com/Varunv003\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/urls/shorten/Fk2ljiCK",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"urls",
+						"shorten",
+						"Fk2ljiCK"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete url",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJWYXJ1bnYiLCJyb2xlcyI6IlJPTEVfVVNFUiIsImlhdCI6MTc1NjQ1NDAwNywiZXhwIjoxNzU2NDU3NjA3fQ.8OAsytpQYcMqg-nuQKnhmsq-H6WTngXk4TSDTYnltz0vbE0tuXMKXXbnQoCDzvPccRKmWPxrQ5589MYLY1crtg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/api/urls/delete/<replace_with_the_short_code_of_the_url_you_want_to_delete>",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"urls",
+						"delete",
+						"<replace_with_the_short_code_of_the_url_you_want_to_delete>"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "redirect",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/r/REdBQpBC",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"r",
+						"REdBQpBC"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "redis_connection_test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/redis-test",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"redis-test"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
